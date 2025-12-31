@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/pages/caseyshy/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/pages/caseyshy/img/favicon.svg" />
+    <link rel="shortcut icon" href="/pages/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/pages/img/apple-touch-icon.png" />
+  <title>Casey Shy - All My Social Links in One Place</title>
+  <meta name="description" content="Hi, I'm Casey. This is my official links page with all my social profiles, recent updates, featured content, and simple ways to connect.">
+  <meta name="keywords" content="casey shy, caseyshy, casey shy official, casey shy links page, caseyshy online">
+
+  <!-- Swiper styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    /* ===============================
+       VANILLA CREAM (iOS-friendly)
+       =============================== */
+    :root {
+      --bg-main: #fbf6ee;
+      --bg-soft: #f3e7d6;
+      --bg-light: #ffffff;
+
+      --text-main: #1f1a14;
+      --text-muted: rgba(31,26,20,.62);
+
+      --accent: #d3a977; /* latte */
+      --accent-2: #c79a63;
+
+      --glass-bg: rgba(255,255,255,.78);
+      --glass-border: rgba(210, 190, 160, .25);
+
+      --radius-xl: 24px;
+      --radius-pill: 999px;
+
+      --shadow-soft: 0 10px 24px rgba(0,0,0,.10);
+      --shadow-strong: 0 22px 50px rgba(0,0,0,.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(900px 700px at 20% 10%, var(--bg-light), transparent 60%),
+        radial-gradient(800px 600px at 85% 20%, rgba(255,255,255,.7), transparent 60%),
+        linear-gradient(160deg, var(--bg-main), var(--bg-soft));
+    }
+
+    /* subtle paper grain */
+    body::after {
+      content:"";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .10;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.02), rgba(0,0,0,.02) 1px, transparent 1px, transparent 3px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.02), rgba(0,0,0,.02) 1px, transparent 1px, transparent 4px);
+      mix-blend-mode: multiply;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 26px 12px 52px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ===============================
+       SLIDER
+       =============================== */
+    .swiper {
+      width: 100%;
+      max-width: 270px;
+      margin: 0 auto 18px;
+    }
+
+    .swiper-slide {
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(210, 190, 160, .18);
+      border-radius: var(--radius-xl);
+      /* box-shadow: var(--shadow-soft);*/
+      overflow: hidden;
+      transform: translateZ(0);
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: scale(1.01);
+    }
+
+    h1 {
+      margin: 12px 0 6px;
+      font-size: 28px;
+      letter-spacing: .2px;
+    }
+
+    .status {
+      margin-bottom: 22px;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    /* ===============================
+       LINKS (Linktree-like, airy)
+       =============================== */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      padding: 14px 16px;
+      border-radius: var(--radius-pill);
+
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+
+      text-decoration: none;
+      color: var(--text-main);
+
+      font-weight: 750;
+      letter-spacing: .1px;
+
+      transition:
+        transform .26s cubic-bezier(.22,1,.36,1),
+        box-shadow .26s,
+        background .26s;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    .link:hover {
+      background: rgba(255,255,255,.92);
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .link:active {
+      transform: translateY(0) scale(.985);
+      box-shadow: 0 12px 26px rgba(0,0,0,.12);
+    }
+
+    .pill-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 36px;
+
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(210, 190, 160, .18);
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+
+    .pill-icon img {
+      width: 36px;
+      height: 36px;
+      display: block;
+      opacity: .9;
+    }
+
+    .link .text {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .link .label {
+      font-size: 15px;
+      line-height: 1.1;
+    }
+
+    .link .hint {
+      font-size: 13px;
+      opacity: .55;
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 36px;
+      font-size: 12px;
+      color: var(--text-muted);
+      opacity: .75;
+    }
+
+    /* ===============================
+       AGE MODAL (iPhone-style)
+       =============================== */
+    #ageModal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.35);
+      z-index: 9999;
+      padding: 16px;
+    }
+
+    #ageModal.active { display: flex; }
+
+    #ageModal .card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 16px;
+
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 22px;
+
+      padding: 18px 16px 16px;
+      text-align: center;
+
+      box-shadow: 0 24px 70px rgba(0,0,0,.22);
+
+      transform: translateY(10px) scale(.98);
+      opacity: 0;
+      transition: all .28s cubic-bezier(.2,.9,.2,1);
+    }
+
+    #ageModal.active .card {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    #ageModal h3 {
+      margin: 8px 0 6px;
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: .1px;
+      color: var(--text-main);
+    }
+
+    #ageModal p {
+      margin: 0 0 14px;
+      font-size: 14.5px;
+      line-height: 1.35;
+      color: var(--text-muted);
+      font-weight: 450;
+    }
+
+    #ageModal label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      user-select: none;
+    }
+
+    #ageModal input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: none;
+
+      background: rgba(0,0,0,.05);
+      color: rgba(0,0,0,.65);
+      font-size: 22px;
+      line-height: 1;
+
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease, transform .15s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(0,0,0,.08);
+      color: rgba(0,0,0,.85);
+      transform: translateY(-1px);
+    }
+
+    .continue-btn {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 999px;
+      border: none;
+
+      background: #c42cc2;
+      color: #fff;
+
+      font-size: 16px;
+      font-weight: 750;
+      cursor: pointer;
+
+      box-shadow: 0 12px 26px rgba(0,0,0,.14);
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+
+    .continue-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.16);
+      filter: brightness(1.02);
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .link, #ageModal .card, .continue-btn { transition: none !important; }
+      .link:hover { transform: none; }
+      #ageModal .card { transform: none; opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Slider -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="/pages/img/slider_1.jpg" alt="Casey Shy photo"></div>
+        <div class="swiper-slide"><img src="/pages/img/slider_2.jpg" alt="Casey Shy"></div>
+        <div class="swiper-slide"><img src="/pages/img/slider_3.jpg" alt="caseyshy"></div>
+        <div class="swiper-slide"><img src="/pages/img/slider_4.jpg" alt="Casey Shy picture"></div>
+        <div class="swiper-slide"><img src="/pages/img/slider_5.jpg" alt="Cassie Shy photo"></div>
+      </div>
+    </div>
+
+    <h1>Casey 💗</h1>
+    <div class="status">🟢 Online Now 🟢</div>
+
+    <!-- Links -->
+    <div class="links">
+      <a class="link"
+         href="/caseyshy/vip"
+         data-out="https://metaofficials.blogspot.com/p/freeaccess.html">
+        <span class="pill-icon">
+          <!-- placeholder icon: replace with your OF logo -->
+          <img src="/pages/img/icon_1.png" alt="">
+        </span>
+        <span class="text">
+          <span class="label">My Exclusive Content 🤍🩵</span>
+          <span class="hint">tap</span>
+        </span>
+      </a>
+
+      <a class="link"
+         href="/caseyshy/private"
+         data-out="https://metaofficials.blogspot.com/p/freeaccess.html">
+        <span class="pill-icon">
+          <!-- placeholder icon: replace with your LF logo -->
+          <img src="/pages/img/icon_2.png" alt="">
+        </span>
+        <span class="text">
+          <span class="label">My Secret Page 🍓</span>
+          <span class="hint">tap</span>
+        </span>
+      </a>
+    </div>
+
+    <footer>© 2025 caseyshy.com</footer>
+  </div>
+
+  <!-- Age Modal -->
+  <div id="ageModal" aria-hidden="true">
+    <div class="card" role="dialog" aria-modal="true" aria-label="18+ content warning">
+      <button class="close-btn" id="ageClose" type="button" aria-label="Close">×</button>
+
+      <h3>18+ Content Warning</h3>
+      <p>This link may contain content that is not appropriate for all audiences.</p>
+
+      <label>
+        <input id="dontShowAgain" type="checkbox" checked>
+        Do not show this warning again (24h)
+      </label>
+
+      <button class="continue-btn" id="ageYes" type="button">Continue (18+)</button>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof Swiper === 'undefined') {
+        console.error('Swiper is not loaded. Check CDN/CSP/adblock.');
+        return;
+      }
+
+      new Swiper('.swiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 1.2,
+        loop: true,
+        autoplay: { delay: 2000, disableOnInteraction: false },
+        speed: 900,
+        coverflowEffect: { rotate: 35, stretch: 0, depth: 140, modifier: 1, slideShadows: false }
+      });
+    });
+  </script>
+
+  <!-- Age-gate logic (24h remember on Continue only) -->
+  <script>
+    let pendingUrl = null;
+    let pendingGaEvent = null;
+
+    const modal = document.getElementById('ageModal');
+    const yesBtn = document.getElementById('ageYes');
+    const closeBtn = document.getElementById('ageClose');
+    const checkbox = document.getElementById('dontShowAgain');
+
+    const STORAGE_KEY = 'age_ok_until';
+    const TTL_MS = 24 * 60 * 60 * 1000;
+
+    function getAgeOkUntil() {
+      const v = localStorage.getItem(STORAGE_KEY);
+      const n = v ? Number(v) : 0;
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function isAgeOkValid() {
+      return Date.now() < getAgeOkUntil();
+    }
+
+    function setAgeOkFor24h() {
+      localStorage.setItem(STORAGE_KEY, String(Date.now() + TTL_MS));
+    }
+
+    function openAgeModal(url, gaEvent) {
+      pendingUrl = url;
+      pendingGaEvent = gaEvent;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeAgeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      pendingUrl = null;
+      pendingGaEvent = null;
+    }
+
+    // intercept clicks
+    document.querySelectorAll('a[data-out]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const url = link.getAttribute('data-out');
+        const gaEvent = link.getAttribute('data-ga');
+
+        // already confirmed
+        if (isAgeOkValid()) {
+          try {
+            if (typeof gtag === 'function' && gaEvent) {
+              gtag('event', gaEvent, { event_category: 'links' });
+            }
+          } catch (e) {}
+
+          window.open(url, '_blank', 'noopener,noreferrer');
+          return;
+        }
+
+        openAgeModal(url, gaEvent);
+      });
+    });
+
+    // Continue (18+)
+    yesBtn.addEventListener('click', () => {
+      if (checkbox && checkbox.checked) {
+        try { setAgeOkFor24h(); } catch (e) {}
+      }
+
+      try {
+        if (typeof gtag === 'function' && pendingGaEvent) {
+          gtag('event', pendingGaEvent, { event_category: 'links' });
+        }
+      } catch (e) {}
+
+      if (pendingUrl) {
+        window.open(pendingUrl, '_blank', 'noopener,noreferrer');
+      }
+      closeAgeModal();
+    });
+
+    // close actions
+    closeBtn.addEventListener('click', closeAgeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeAgeModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeAgeModal();
+    });
+  </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1182949ad8704a91b3478b20f4a5764b","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
